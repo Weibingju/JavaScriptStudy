@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQuery学习之旅</title>
+	</head>
+	<body>
+		<h1>JQuery学习之旅</h1>
+		<h2>JQuey选择器</h2>
+		JQuery 全局对象jQuey,即$
+		1.基础选择器
+		2.层级选择器(Descentdant Selector)  使用空格隔开 ,例：$('ul.lang li.lang-javascript')
+		3.子选择器(Child Selector) 使用向右箭头（>）表示，例：$('parent>child');该选择器限定层级关系必须是父子关系
+		4.过滤器(Filter) 一般不单独使用，通常附加在选择器上
+		    例：$('ul.lang li') -- 选出所有节点
+		      $('ul.lang li:first-child') -- 仅选出第一个节点
+		      $('ul.lang li:last-child')  -- 仅选出最后一个元素
+		      $('ul.lang li:nth-child(2)') --仅选出第N个元素，N从1开始
+		      $('ul.lang li:nth-child(even)') -- 选出序号为偶数的元素
+		      $('ul.lang li:nth-child(odd)') --选出序号为奇数的元素
+		    表单特殊选择器：
+		    a. :input
+		    b. :file,和input[type=checkbox]一样
+		    c. :radio
+		    d. :focus 选出当前输入焦点的元素
+		    e. :checked 例如：$('input[type=readio]:checked')
+		    f. :enabled
+		    g. :disableed
+		    h. :visible 可见的元素
+		    i. :hidden 隐藏的元素
+		5.查找和过滤
+		  查找：
+		  1.find() 方法，接收任意选择器
+		  2.parent() 方法，从当前节点向上查找
+		  3.next()、prev() 同一层级查找方法
+		  过滤：
+		  1.filter() 方法，可以传入选择器和函数
+		  2.map() 方法，把一个JQuery对象包含的若干DOM节点转化为其他对象。
+		6.操作DOM
+		  a.text() 获取节点文本
+		  b.html() 获取节点原始HTML文本、添加DOM节点
+		  c.css() 修改节点css属性
+		  d.hasClass() 是否包含某个class
+		  e.addClass() 为节点添加class
+		  f.removeClass() 删除class
+		  g.show()/hide() 显示/隐藏节点
+		  h.width()/height() 获取节点的宽/高
+		  i.attr()/removerAttr() 操作DOM节点属性
+		  j.prop() 跟attr()类似，但对于属性checked的处理有所不同。prop返回的是false/true,attr则是值，类似的属性还有selected
+		  k.is() 判断某个属性是否存在
+		  l.append()/prepend 添加节点,若存在先进性删除后添加
+		  m.after()/before() 添加节点，同级
+		  n.remove() 删除节点
+		7.操作表单
+		  a.val() 获取和设置表单对应的值
+		8.事件
+		  a.on() 绑定事件名称和处理函数
+		  b.click() 点击事件
+		  鼠标事件：
+		  1.click/dbclick 鼠标单/双击时触发
+		  2.mouseenter/mouseleave/mousemove 鼠标进入/移出/在DOM内部时触发
+		  3.hover 鼠标进入和退出时触发的两个函数，相当于mouseenter加上mouseleave。
+		 键盘事件：仅作用在当前焦点的DOM上，通常是<input>和<textarea>
+		  1.keydown/keyup  键盘按下/松开时触发
+		  2.keypress 按一次键后触发
+		 其他事件：
+		  1.focus 获取焦点时触发
+		  2.blur 失去焦点时触发
+		  3.change 当<input />、<select\>、<textarea\>的内容改变时触发
+		  4.submit 当<form>提交表单时触发
+		  5.ready 当页面被载入并且DOM树完成初始化后触发，仅作用于document对象，适用与写初始化代码。
+		       几种初始化写法
+		       a.$(document).on('ready',function(){//TODO});
+		       b.$(document).ready(function(){//TODO      })
+		       c.$(function(){//TODO})
+		事件参数：
+		  所有事件都会传入Event对象作为参数，可以从Event对象上获取更多的信息
+		取消绑定：一个已被绑定的事件可以解除绑定
+		  1.off('click',function) 实现解除绑定，无法移除已绑定的匿名函数
+		  2.off('click') 一次性艺术已绑定的click事件的所有处理函数
+		  3.off() 一次性移除已绑定的所有类型的事件处理函数。
+		事件触发条件：
+		  1.事件的触发总是由用户操作引发的
+		  2.要使用代码触发change事件，可以直接调用无参数的change方法来触发该事件
+		  3.第二部相当于trigger('change')
+		浏览器安全机制：
+		  有些JavaScript代码只有在用户的触发下才能执行，例如：window.open()函数
+		9.动画,方法加入时间参数
+		  1.show()/hide()/toggle() 传入时间参数时，就可以变成动画效果（左上角开始），也可以是'slow'，'fast'这些字符串；
+		  2.slideUP()/slideDown() 传入时间，垂直方向
+		  3.faldeIn()/fadeOut()/fadeToggle() 淡入淡出，通过设置属性 opacity
+		  4.animate() 自定义动画效果，传入DOM元素最终的CSS状态和时间，还可以传入函数，当动画结束时函数被调用。
+		  5.delay() 暂停
+		  有的动画没有效果，需要使用CSS3的transition。
+		10.JQuery 的Ajax ,封装的是Javascript的Ajax操作
+		  1.$.ajax(URL,settings) settings 为settings对象。
+		    async : 是否异步执行AJAX请求，默认为true
+		    method ：发送的Method，缺省为'GET'
+		    contentType : 发送POST请求的格式，默认'application/x-www-form-urlencoded;charset=UTF-8',也可以指定为'text/plain'、'application/json'
+		    data : 发送的数据，可以时字符串、数组、object
+		    headers : 发送的额外的HTTP头，必须时一个object
+		    dataType:接收数据的格式，可以指定html、xml、json、text，默认则根据响应的Content-Type猜测。
+		  2.$.get()
+		  3.$.post()
+		  4.$.getJSON() 通过GET获取JSON对象
+		  5.典型的Ajax结构
+		    $.ajax({
+		    	url:'www.xxxx.com',
+		    	data: {'info':'11111'},
+                dataType:'json',
+                type:'POST'
+                success:function(data){
+                	//TODO
+                },
+                error:function(data){
+                	//TODO
+                }
+		    })
+		11.编写jQuery插件
+		   a.jQuery对象绑定一个新方法是通过$.fn对象实现的。
+		   b.对于默认值的处理一是使用简单 的&& 和|| 短路操作符，另一个是使用费jQuery提供的辅助方法$.extend(target,obj1,obj2,..),
+	 	         它把多个obj属性合并到第一个target对象中，同名属性总是使用靠后的值。
+	       c.编写JQuery插件原则：
+	         	1.给$.fn绑定函数，实现插件的代码逻辑；
+				2.插件函数最后要return this;以支持链式调用；
+				3.插件函数要有默认值，绑定在$.fn.<pluginName>.defaults上；
+				4.用户在调用时可传入设定值以便覆盖默认值。
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>DOM操作</h1>
+		HTML 被浏览器解析后就是一颗DOM树，可以通过JavaS来操作DOM，
+	达到改变HTML结构的作用。
+	DOM结构的主要操作：
+		1.更新：更新该DOM节点的内容
+		2.遍历：遍历该DOM节点下的子节点
+		3.添加：在该DOM节点下新增一个子节点，相当于动态增加了一个HTML节点。
+		4.删除：将该节点从HTML中删除，其内容和DOM下的所有节点均会被删除。
+	获取DOM节点的方法：
+	    1.通过 document.getElementById(),返回唯一节点
+	    2.通过 document.getElementsByTagName()，返回一组DOM节点
+	    3.通过CSS选择器：document.getElementssByClassName()，返回一组DOM节点
+	注意：由于后两种方法返回的是一组DOM节点，若要精确的选择DOM，有凉后再两种方法：
+	        a.先定位父节点，再从父节点开始选择。
+            b.使用querySelector() 和 querySelectorAll()	
+                            注意：低版本的IE<8不支持querySelector和querySelectorAll。IE8仅有限支持。
+              var q1= document.querySelector("#q1")//获取id 为q1的节点
+              var ps = document.querySelectorAll('div.hh > p')//获取所有符合条件的节点
+    <h2>更新DOM</h2>
+    1.innerHTML 可以设置文本内容，也可以设置HTMLDOM节点内部子树
+    2.innerText 设置文本，可以对字符串HTML编码，无法设置HTML标签,不返回隐藏元素文本
+    3.textContent 不可设置HTML节点，返回所有文本，IE9不支持
+        以上三种都是直接修改节点方法，如果要插入新内容就不能这么干，否则原内容会被覆盖。
+    <h2>插入DOM</h2>
+    1.appendChild 把一个子节点添加到父节点的最后一个子节点，如果原节点已经存在，将会从原来的位置先删除再插入到指定的位置
+    2.document.createElement() 动态创建节点，后需要使用appendChild插入
+    3.insertBefore(newElemnet,referenceElemnet) 此种方式，子节点会插入到referenceElemnet之前
+    <h2>删除DOM节点</h2>
+    1.调用父节点的removeChild,删除后的节点不在文档树中，但是还在内存中，children属性是一个只读属性，会随子节点的变化二变化
+	<h2>操作表单</h2>
+	1.取值，设置，通过属性即可，单选复选注意checked情况
+	2.提交表单
+	  a.submit()
+	  b.响应<form onsubmit=""></form>onsubmit事件，再提交表单时做修改。
+	  注意，没有name属性的表单不会被提交
+	3.文件操作
+	  JavaScript的重要特性就是单线程模式，处理多任务处理采用异步调用方法。
+	  浏览器限制JavaScript修改文件内容，但可以获取其信息，H5新增了File API。
+	</body>
+	
+</html>
