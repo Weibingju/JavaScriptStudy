@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<h1>DOM操作</h1>
-		HTML 被浏览器解析后就是一颗DOM树，可以通过JavaS来操作DOM，
+		HTML 被浏览器解析后就是一颗DOM树，可以通过JavaScript来操作DOM，
 	达到改变HTML结构的作用。
 	DOM结构的主要操作：
 		1.更新：更新该DOM节点的内容
@@ -17,10 +17,10 @@
 	    1.通过 document.getElementById(),返回唯一节点
 	    2.通过 document.getElementsByTagName()，返回一组DOM节点
 	    3.通过CSS选择器：document.getElementssByClassName()，返回一组DOM节点
-	注意：由于后两种方法返回的是一组DOM节点，若要精确的选择DOM，有凉后再两种方法：
+	注意：由于后两种方法返回的是一组DOM节点，若要精确的选择DOM，有两种方法：
 	        a.先定位父节点，再从父节点开始选择。
             b.使用querySelector() 和 querySelectorAll()	
-                            注意：低版本的IE<8不支持querySelector和querySelectorAll。IE8仅有限支持。
+                            注意：低版本的IE8不支持querySelector和querySelectorAll。IE8仅有限支持。
               var q1= document.querySelector("#q1")//获取id 为q1的节点
               var ps = document.querySelectorAll('div.hh > p')//获取所有符合条件的节点
     <h2>更新DOM</h2>
@@ -38,7 +38,7 @@
 	1.取值，设置，通过属性即可，单选复选注意checked情况
 	2.提交表单
 	  a.submit()
-	  b.响应<form onsubmit=""></form>onsubmit事件，再提交表单时做修改。
+	  b.响应<form onsubmit=""></form>onsubmit事件，在提交表单时做修改。
 	  注意，没有name属性的表单不会被提交
 	3.文件操作
 	  JavaScript的重要特性就是单线程模式，处理多任务处理采用异步调用方法。

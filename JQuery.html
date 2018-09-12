@@ -20,7 +20,7 @@
 		      $('ul.lang li:nth-child(odd)') --选出序号为奇数的元素
 		    表单特殊选择器：
 		    a. :input
-		    b. :file,和input[type=checkbox]一样
+		    b. :file,和input[type=file]一样
 		    c. :radio
 		    d. :focus 选出当前输入焦点的元素
 		    e. :checked 例如：$('input[type=readio]:checked')
@@ -28,6 +28,7 @@
 		    g. :disableed
 		    h. :visible 可见的元素
 		    i. :hidden 隐藏的元素
+		    j. :checkbox：可以选择复选框，和input[type=checkbox]一样
 		5.查找和过滤
 		  查找：
 		  1.find() 方法，接收任意选择器
@@ -77,12 +78,12 @@
 		  所有事件都会传入Event对象作为参数，可以从Event对象上获取更多的信息
 		取消绑定：一个已被绑定的事件可以解除绑定
 		  1.off('click',function) 实现解除绑定，无法移除已绑定的匿名函数
-		  2.off('click') 一次性艺术已绑定的click事件的所有处理函数
+		  2.off('click') 一次性解除已绑定的click事件的所有处理函数
 		  3.off() 一次性移除已绑定的所有类型的事件处理函数。
 		事件触发条件：
 		  1.事件的触发总是由用户操作引发的
 		  2.要使用代码触发change事件，可以直接调用无参数的change方法来触发该事件
-		  3.第二部相当于trigger('change')
+		  3.第二步相当于trigger('change')
 		浏览器安全机制：
 		  有些JavaScript代码只有在用户的触发下才能执行，例如：window.open()函数
 		9.动画,方法加入时间参数
