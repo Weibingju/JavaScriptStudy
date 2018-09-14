@@ -1,0 +1,4 @@
+# JavaScriptStudy
+本学习笔记基于廖雪峰老师的JavaScript课程学习，笔记均是来自廖老师的教程。
+详情请参考廖老师JavaScript教程：
+https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000
